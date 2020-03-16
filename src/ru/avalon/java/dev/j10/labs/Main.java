@@ -1,16 +1,24 @@
 package ru.avalon.java.dev.j10.labs;
 
-import ru.avalon.java.dev.j10.labs.models.Person;
+import ru.avalon.java.dev.j10.labs.models.*;
 
 public class Main {
-
+      
     /*
      * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
      */
-    Main() {
+    public static void main(String[] args) {
+        String ivanovName = "Иван Иванов Иванович";
+        String smithName = "John Edvard Smith";
+        String ivanovAddress = "Санкт-Петербург, ул.Обручевых, д.1";
+        String smithAddress = "USAAddress";
+        
+        Person ivanov = new Person(ivanovName);
+        Person smith = new Person(smithName);
+        System.out.println(ivanov.getFullName());
+        System.out.println(smith.getFullName());
 
-        Person ivanov = null;
-        Person smith = null;
+        
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'
@@ -23,7 +31,7 @@ public class Main {
          *    чтобы она адресовала объект типа 'Person'
          *    описывающий человека по имени 'John Edvard Smith'.
          */
-
+         
         /*
          * TODO(Студент): Создайте несколько строковых переменных:
          *
