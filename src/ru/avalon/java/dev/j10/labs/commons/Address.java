@@ -1,3 +1,15 @@
+
+public class Address {
+    String city;
+    String street;
+    String house;
+    public Address (String city, String street, String house){
+        this.city = city;
+        this.street = street;
+        this.house = house;
+    }
+}
+
 /*
  * TODO(Студент): Создайте класс Address.
  *
