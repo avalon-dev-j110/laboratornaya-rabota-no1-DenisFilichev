@@ -16,6 +16,36 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 class Passport {
+    
+    private String passportID;
+    private String name;
+    private String secondName;
+    private String bithday;
+    private String dateOfissue;
+    private String government;
+    private String fullData;
+
+   
+    public Passport(String name){
+        this.passportID = "4105 564857";
+        this.name = name;
+        this.bithday = "17.02.1999";
+        this.dateOfissue = "17.02.2017";
+        this.government = "УМВД №17";
+        this.fullData = "passport: " + passportID + " Name: " + name + " bithday: " + bithday + " dateOfissue: " + dateOfissue + " government: " + government;
+    }
+    
+    public Passport(String fistName, String lastName){
+        this.passportID = "54789512";
+        this.secondName = secondName;
+        this.bithday = "02.02.2000";
+        this.dateOfissue = "02.02.2018";
+        this.government = "USA";
+    }
+    
+    public String getDataOfPassport (){
+        return fullData;
+    }
 
     /*
      * TODO(Студент): Закончить определение класса.

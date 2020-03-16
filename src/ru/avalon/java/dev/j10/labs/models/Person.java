@@ -11,6 +11,15 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 public class Person {
+  
+    private String name;
+    private Passport passportOfPerson;
+    
+    public Person(String name) {
+        this.name = name;
+        passportOfPerson = new Passport(name);
+    }
+    
 
     /**
      * Возврвщает полное имя человека.
@@ -33,7 +42,7 @@ public class Person {
         /*
          * TODO(Студент): Закончить определение метода 'getFullName()' класса 'Person'
          */
-        return null;
+        return passportOfPerson.getDataOfPassport();
     }
 
     /**
