@@ -19,7 +19,7 @@ public class Person {
     private String fullAddress;
     private Address address;
     
-      
+    // Конструктор для создания объекта, имеющего фамилию, имя и отчество
     public Person(String lastName, String firstName, String middleName) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -28,6 +28,7 @@ public class Person {
         address = new Address("Санкт-Петербург", "ул.Обручевых", "д.1");
     }
     
+    // Конструктор для создания объекта, имеющего фамилию, первое имя и второе имя
     public Person(String lastName, String firstName) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -35,6 +36,7 @@ public class Person {
         address = new Address("NY", "Westminster Avenue", "775");
     }
     
+    // Конструктор для создания объекта, имеющего только фамилию и имя
     public Person(String lastName) {
         this.lastName = lastName;
         passportOfPerson = new Passport(lastName);
