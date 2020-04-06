@@ -5,41 +5,102 @@ import ru.avalon.java.dev.j10.labs.commons.*;
 public class Person {
     private String lastName;
     private String firstName;
-    private String middleName;
+    private String middleName = null;
+    private String secondName = null;
+    private String bithday;
     private Passport passportOfPerson;
-    private String fullAddress;
     private Address address;
     
-    // Конструктор для создания объекта, имеющего фамилию, имя и отчество
-    public Person(String lastName, String firstName, String middleName) {
+    public Person(String lastName, String firstName, String middleName, String secondName, String bithday) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
-        passportOfPerson = new Passport(firstName, lastName, middleName);
-        address = new Address("Санкт-Петербург", "ул.Обручевых", "д.1");
+        this.secondName = secondName;
+        this.bithday = bithday;
     }
     
-    // Конструктор для создания объекта, имеющего фамилию, первое имя и второе имя
-    public Person(String lastName, String firstName) {
+    public void setPassportOfPerson(String passportID, String dateOfissue, String government) {
+        Passport passportOfPerson = new Passport(passportID, dateOfissue, government);
+        this.passportOfPerson = passportOfPerson;
+    }
+    
+    public void setAddress(String city, String street, int house) {
+        Address address = new Address(city, street, house);
+        this.address = address;
+    }
+    
+    public Passport getPassportOfPerson (){
+        return passportOfPerson;
+    }
+    
+    public Address getAddress (){
+        return address;
+    }
+
+    @Override
+    public String toString() {
+        if (secondName == null)
+        {
+            if (middleName != null)
+            {   // Создание обекта, имеющего имя, фамилию и отчество
+                return "Person: " + lastName + " " + firstName + " " + middleName + ", д.р. " + bithday;
+            }
+            else
+                {   // Создание объекта, имеющего только имя и фамилию
+                    return "Person: " + lastName + " " + firstName + ", д.р. " + bithday;
+                }
+        }
+        else   
+            {   // Создание объекта, имеющего фамилию, первое имя и второе имя
+                char e = secondName.charAt(0); // берем первую букву второго имени
+                String shortsecondName = e + "."; // присоединяем букву второго имени к первому имени
+                return "Person: " + lastName + " " + firstName + " " + shortsecondName + ", д.р. " + bithday;
+            }
+    }
+    
+     // Ниже приведенные сетеры переменных добавлены для большей эластичности программы.
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
-        passportOfPerson = new Passport(firstName, lastName);
-        address = new Address("NY", "Westminster Avenue", "775");
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setBithday(String bithday) {
+        this.bithday = bithday;
     }
     
-    // Конструктор для создания объекта, имеющего только фамилию и имя
-    public Person(String lastName) {
-        this.lastName = lastName;
-        passportOfPerson = new Passport(lastName);
-        address = new Address("80331 München", "Marienplatz", "8");
+    public void setPassportID(String passportID) {
+        passportOfPerson.setPassportID(passportID);
     }
-
-    public String getFullName() {
-        return passportOfPerson.getDataOfPassport();
+    
+    public void setDateOfissue(String dateOfissue) {
+        passportOfPerson.setDateOfissue(dateOfissue);
     }
-
-    public String getAddress() {
-        fullAddress = address.getAddress();
-        return fullAddress;
+    
+    public void setGovernment(String government) {
+        passportOfPerson.setPassportID(government);
+    }
+    
+    public void setCity(String city) {
+        address.setCity(city);
+    }
+    
+    public void setStreet(String street) {
+        address.setStreet(street);
+    }
+    
+    public void setHouse(int house) {
+        address.setHouse(house);
     }
 }
