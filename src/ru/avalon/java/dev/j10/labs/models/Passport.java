@@ -1,40 +1,33 @@
 package ru.avalon.java.dev.j10.labs.models;
 
-/**
- * Представление о паспортных данных человека.
- * <p>
- * Паспортные данные должны включать:
- * <ol>
- *  <li> серию и номер документа;
- *  <li> имя;
- *  <li> фамилию;
- *  <li> отчество;
- *  <li> второе имя;
- *  <li> день рождения;
- *  <li> дату выдачи;
- *  <li> орган, выдавший документ.
- * </ol>
- */
 class Passport {
+    private String passportID;
+    private String dateOfissue;
+    private String government;
 
-    /*
-     * TODO(Студент): Закончить определение класса.
-     *
-     * 1. Объявить атрибуты класса.
-     *
-     * 2. Определить необходимые методы класса. Подумайте о
-     *    том, какие методы должны существовать в классе,
-     *    чтобы обеспечивать получение всей необходимой
-     *    информации о состоянии объектов данного класса.
-     *    Все ли поля обязательно будут проинициализированы
-     *    при создании экземпляра?
-     *
-     * 3. Создайте все необходимые конструкторы класса.
-     *
-     * 4. Помните о возможности существования перегруженных
-     *    конструкторов.
-     *
-     * 5. Обеспечте возможность использования класса за
-     *    пределами пакета.
-     */
+    public Passport(String passportID, String dateOfissue, String government){
+        this.passportID = passportID;
+        this.dateOfissue = dateOfissue;
+        this.government = government;
+    }
+
+    @Override
+    public String toString() {
+        return "Passport " + "№" + passportID + ", дата выдачи= " + dateOfissue + ", кем выдан= " + government;
+    }
+    
+    // Ниже приведенные сетеры переменных добавлены для большей эластичности программы.
+    public void setPassportID(String passportID) {
+        this.passportID = passportID;
+    }
+
+    public void setDateOfissue(String dateOfissue) {
+        this.dateOfissue = dateOfissue;
+    }
+
+    public void setGovernment(String government) {
+        this.government = government;
+    }
+    
+    
 }
