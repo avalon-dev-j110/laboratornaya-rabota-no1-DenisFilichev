@@ -33,29 +33,33 @@ public class Person {
         return passportOfPerson;
     }
     
-    public Address getAddress (){
-        return address;
+    public String getAddress (){
+        return address.toString();
     }
-
-    @Override
-    public String toString() {
+    
+    public String getFullName(){
         if (secondName == null)
         {
             if (middleName != null)
             {   // Создание обекта, имеющего имя, фамилию и отчество
-                return "Person: " + lastName + " " + firstName + " " + middleName + ", д.р. " + bithday;
+                return "Person: " + lastName + " " + firstName + " " + middleName;
             }
             else
                 {   // Создание объекта, имеющего только имя и фамилию
-                    return "Person: " + lastName + " " + firstName + ", д.р. " + bithday;
+                    return "Person: " + lastName + " " + firstName;
                 }
         }
         else   
             {   // Создание объекта, имеющего фамилию, первое имя и второе имя
                 char e = secondName.charAt(0); // берем первую букву второго имени
                 String shortsecondName = e + "."; // присоединяем букву второго имени к первому имени
-                return "Person: " + lastName + " " + firstName + " " + shortsecondName + ", д.р. " + bithday;
+                return "Person: " + lastName + " " + firstName + " " + shortsecondName;
             }
+    }
+
+    @Override
+    public String toString() {
+        return getFullName() + ", д.р. " + bithday;
     }
     
      // Ниже приведенные сетеры переменных добавлены для большей эластичности программы.
